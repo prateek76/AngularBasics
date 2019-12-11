@@ -1,3 +1,5 @@
+import { EventRouteActicator } from './events/event-details/event-route-activator.service';
+import { Error404Component } from './errors/404.component';
 import { CreateEventComponent } from './events/create-event.component';
 import { ToastrService } from './common/toastr.service';
 import { EventService } from './events/shared/event.service';
@@ -19,13 +21,28 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
     EventThumbnailComponent,
     NavbarComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService,ToastrService],
+  providers: [
+    EventService,
+    ToastrService,
+    EventRouteActicator,
+    {
+      provide: 'canDeactivateRoute',
+      useValue: checkDirtyState
+    }
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+
+export function checkDirtyState(component: CreateEventComponent) {
+  if(component.isDirty)
+    return window.confirm('You have not saved this event, do you really want to cancel?')
+  return true;
+}

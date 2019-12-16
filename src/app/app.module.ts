@@ -1,3 +1,4 @@
+import { AuthService } from './user/auth.service';
 import { Error404Component } from './errors/404.component';
 import { ToastrService } from './common/toastr.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,7 +39,8 @@ import { RouterModule } from '@angular/router';
     {
       provide: 'canDeactivateRoute',
       useValue: checkDirtyState
-    }
+    },
+    AuthService
   ],
   bootstrap: [EventsAppComponent]
 })

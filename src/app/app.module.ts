@@ -3,6 +3,7 @@ import { Error404Component } from './errors/404.component';
 import { ToastrService } from './common/toastr.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   EventsListComponent,
@@ -29,6 +30,8 @@ import { RouterModule } from '@angular/router';
     Error404Component
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],

@@ -17,7 +17,7 @@ export class EventDetailsComponent {
     }
 
     filterBy: string = 'all'
-    
+    sortBy: string = 'votes'
     event:IEvent
 
     ngOnInit() {

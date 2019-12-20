@@ -11,7 +11,8 @@ import {
   EventDetailsComponent,
   EventRouteActicator,
   CreateEventComponent,
-  EventService
+  EventService,
+  SessionListComponent
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    SessionListComponent
   ],
   imports: [
     FormsModule,

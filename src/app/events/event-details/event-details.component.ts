@@ -16,6 +16,8 @@ export class EventDetailsComponent {
 
     }
 
+    filterBy: string = 'all'
+    
     event:IEvent
 
     ngOnInit() {

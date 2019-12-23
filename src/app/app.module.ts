@@ -21,7 +21,7 @@ import { NavbarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 
-declare let toastr:Toastr
+let toastr:Toastr = window['toastr'];
 
 @NgModule({
   declarations: [

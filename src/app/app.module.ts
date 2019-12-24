@@ -1,3 +1,6 @@
+import { ModalTriggerDirective } from './common/modalTrigger.directive';
+import { SimpleModalComponent } from './common/simpleModal.component';
+import { JQ_TOKEN } from './common/jQuery.service';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { AuthService } from './user/auth.service';
 import { Error404Component } from './errors/404.component';
@@ -22,6 +25,7 @@ import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 
 let toastr:Toastr = window['toastr'];
+let jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ let toastr:Toastr = window['toastr'];
     CreateEventComponent,
     Error404Component,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     FormsModule,
@@ -46,6 +52,10 @@ let toastr:Toastr = window['toastr'];
     {
       provide: TOASTR_TOKEN,
       useValue: toastr
+    },
+    {
+      provide: JQ_TOKEN,
+      useValue: jQuery
     },
     EventRouteActicator,
     {
